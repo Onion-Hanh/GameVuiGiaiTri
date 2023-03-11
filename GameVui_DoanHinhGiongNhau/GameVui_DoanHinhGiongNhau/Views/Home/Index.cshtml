@@ -3,18 +3,41 @@
 }
 
 <div class="container-greeting">
-    <div>
-        <h3 class="hello-greeting font-color-greeting">CHÀO MỪNG CÁC BẠN ĐẾN VỚI NHỮNG THỬ THÁCH THÚ VỊ</h3>
+    @using (Html.BeginForm("MainUI", "Home"))
+    {
+        <div>
+            <h3 class="hello-greeting font-color-greeting">CHÀO MỪNG CÁC BẠN ĐẾN VỚI NHỮNG THỬ THÁCH THÚ VỊ</h3>
+        </div>
+        <div>
+            <img class="img-greeting" src="~/lib/hinhanh/decline_decision.png" />
+        </div>
+        <div class="align-center">
+            <button type="submit" class="btn btn-success font-color-greeting btn-hover-success">CHẤP NHẬN THỬ THÁCH &#128548</button>
+            <button type="button" class="btn btn-danger font-color-greeting btn-hover-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">BỎ CUỘC THUI! SỢ QUÁ &#128546</button>
+        </div>
+        <div class="font-color-greeting copyright">Bản quyền thuộc về Nguyễn Đức Hành - &copy Do not copyright</div>
+        @* <audio autoplay loop>
+            <source src="~/lib/amthanh/greeting_music.mp3" type="audio/mp3" />
+         </audio>*@
+    }    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    &#128019;
+                    &#128019;
+                    &#128019;
+                    Đồ con gà công nghiệp!
+                    &#128540;
+                    &#128540;
+                    &#128540;
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <img class="img-greeting" src="~/lib/hinhanh/decline_decision.png" />
-    </div>
-    <div class="align-center">
-        <button type="button" class="btn btn-success font-color-greeting">CHẤP NHẬN THỬ THÁCH &#128548</button>
-        <button type="button" class="btn btn-danger font-color-greeting">BỎ CUỘC THUI! SỢ QUÁ &#128546</button>
-    </div>
-    <div class="font-color-greeting copyright">Bản quyền thuộc về Nguyễn Đức Hành - &copy Do not copyright</div>
-    <audio controls autoplay loop>
-        <source src="~/lib/amthanh/greeting_music.mp3" type="audio/mp3" />
-    </audio>
 </div>

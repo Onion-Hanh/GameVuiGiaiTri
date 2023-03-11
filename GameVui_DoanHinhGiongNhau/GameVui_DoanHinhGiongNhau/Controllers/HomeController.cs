@@ -17,7 +17,10 @@ namespace GameVui_DoanHinhGiongNhau.Controllers
         {
             return View();
         }
-
+        public IActionResult MainUi()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

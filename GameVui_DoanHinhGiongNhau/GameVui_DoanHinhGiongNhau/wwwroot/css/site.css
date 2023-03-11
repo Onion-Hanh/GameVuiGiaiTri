@@ -60,3 +60,13 @@ html, body {
         margin-left: 800px;
         margin-top: 30px;
     }
+.btn-hover-success:hover {
+    background-color: #009966;
+    font-weight: bolder;
+    color: #FFFF33;
+}
+.btn-hover-danger:hover {
+    background-color: #FF0000;
+    font-weight: bolder;
+    color: #FFFF33;
+}
