@@ -10,10 +10,9 @@ namespace API.Controllers
     public class QuestionController : ControllerBase
     {
         public readonly IQuestionRepository _questionRepository;
-        //Customer
-        public QuestionController(IQuestionRepository qeustionRepository)
+        public QuestionController(IQuestionRepository questionRepository)
         {
-            _questionRepository = qeustionRepository;
+            _questionRepository = questionRepository;
         }
         [HttpGet]
         public async Task<List<QuestionDTO>> GetQuestions()
