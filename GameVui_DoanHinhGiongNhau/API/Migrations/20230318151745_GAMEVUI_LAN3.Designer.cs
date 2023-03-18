@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(GameVuiDBContext))]
-    [Migration("20230312155000_GameVuiDB-1")]
-    partial class GameVuiDB1
+    [Migration("20230318151745_GAMEVUI_LAN3")]
+    partial class GAMEVUI_LAN3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,9 +35,6 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RecordId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("players");
@@ -51,7 +48,7 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AnswerTimne")
+                    b.Property<int>("AnswerTime")
                         .HasColumnType("int");
 
                     b.Property<string>("Answer_1")
@@ -70,12 +67,19 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CorrectAnswer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Point")
                         .HasColumnType("int");
 
                     b.Property<string>("QuestionContent")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

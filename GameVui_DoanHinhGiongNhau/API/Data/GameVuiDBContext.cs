@@ -34,12 +34,6 @@ namespace API.Data
                 .HasOne<Player>(c => c.Player)
                 .WithMany(g => g.records)
                 .HasForeignKey(s => s.PlayerId);
-            //add cascade delete for player
-            modelBuilder.Entity<Player>()
-                .HasMany<Record>(c => c.records)
-                .WithOne(g => g.Player)
-                .HasForeignKey(c => c.PlayerId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

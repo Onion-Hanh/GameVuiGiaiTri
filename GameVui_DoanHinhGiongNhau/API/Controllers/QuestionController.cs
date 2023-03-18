@@ -20,5 +20,41 @@ namespace API.Controllers
         {
             return await _questionRepository.GetQuestions();
         }
+        [HttpPost]
+        public bool AddQuestion(QuestionDTO newQuestion)
+        {
+            if (_questionRepository.AddQuestion(newQuestion))
+            {
+                return true;
+            }
+            return false;
+        }
+        [HttpPut]
+        public bool UpdateQuestion(QuestionDTO updateQuestion)
+        {
+            if (_questionRepository.UpdateQuestion(updateQuestion))
+            {
+                return true;
+            }
+            return false;
+        }
+        [HttpPut("{questionId}")]
+        public bool SoftDeleteQuestion(int questionId)
+        {
+            if (_questionRepository.SoftDeleteQuestion(questionId))
+            {
+                return true;
+            }
+            return false;
+        }
+        [HttpDelete]
+        public bool HardDeleteQuestion(int questionId)
+        {
+            if (_questionRepository.HardDeleteQuestion(questionId))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

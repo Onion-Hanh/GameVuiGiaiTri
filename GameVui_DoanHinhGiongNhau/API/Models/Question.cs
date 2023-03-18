@@ -10,7 +10,9 @@ namespace API.Models
         public string Answer_2 { get; set; }
         public string Answer_3 { get; set; }
         public string Answer_4 { get; set; }
-        public int AnswerTimne { get; set; }
+        public string CorrectAnswer { get; set; }
+        public int AnswerTime { get; set; }        
         public int Point { get; set; }
+        public bool Status { get; set; }
     }
 }

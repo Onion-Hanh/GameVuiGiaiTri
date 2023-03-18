@@ -4,7 +4,7 @@
 
 namespace API.Migrations
 {
-    public partial class GameVuiDB1 : Migration
+    public partial class GAMEVUI_LAN3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,8 +14,7 @@ namespace API.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PlayerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RecordId = table.Column<int>(type: "int", nullable: false)
+                    PlayerName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,8 +32,10 @@ namespace API.Migrations
                     Answer_2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Answer_3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Answer_4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AnswerTimne = table.Column<int>(type: "int", nullable: false),
-                    Point = table.Column<int>(type: "int", nullable: false)
+                    CorrectAnswer = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AnswerTime = table.Column<int>(type: "int", nullable: false),
+                    Point = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
