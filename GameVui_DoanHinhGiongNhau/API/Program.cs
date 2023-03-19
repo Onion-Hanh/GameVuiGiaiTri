@@ -23,6 +23,8 @@ builder.Services.AddDbContext<GameVuiDBContext>(options =>
 builder.Services.AddAutoMapper(typeof(Question_Mapping).Assembly);
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
 builder.Services.AddAutoMapper(typeof(Player_Mapping).Assembly);
+builder.Services.AddScoped<IRecordRepository, RecordRepository>();
+builder.Services.AddAutoMapper(typeof(Record_Mapping).Assembly);
 builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -31,7 +31,7 @@ namespace API.Repositories
             question.Answer_4 = newQuestion.Answer_4;
             question.CorrectAnswer = newQuestion.CorrectAnswer;
             question.AnswerTime = newQuestion.AnswerTime;
-            question.Point = newQuestion.Point;
+            question.DifficultLevel = newQuestion.DifficultLevel;
             question.Status = true;
             try
             {
@@ -58,7 +58,7 @@ namespace API.Repositories
                     question.Answer_4 = updateQuestion.Answer_4;
                     question.CorrectAnswer = updateQuestion.CorrectAnswer;
                     question.AnswerTime = updateQuestion.AnswerTime;
-                    question.Point = updateQuestion.Point;
+                    question.DifficultLevel = updateQuestion.DifficultLevel;
                     question.Status = updateQuestion.Status;
                     _gameVuiDBContext.SaveChanges();
                     return true;

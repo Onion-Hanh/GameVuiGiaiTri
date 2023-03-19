@@ -16,7 +16,7 @@ namespace CommonStorage.Question
         public string Answer_4 { get; set; }
         public string CorrectAnswer { get; set; }
         public int AnswerTime { get; set; }
-        public int Point { get; set; }
+        public int DifficultLevel { get; set; }
         public bool Status { get; set; }
     }
 }
