@@ -7,7 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Shared\Components\Record\" />
+    <Folder Include="Views\Shared\Components\Player\" />
     <Folder Include="wwwroot\lib\HinhAnh\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommonStorage\CommonStorage.csproj" />
   </ItemGroup>
 
 </Project>
