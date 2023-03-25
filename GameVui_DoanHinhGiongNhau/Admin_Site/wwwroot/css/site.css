@@ -1,0 +1,54 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+.align-center {
+    text-align: center;
+}
+.login-container {
+    padding-top: 15px;
+    background-image: url(../lib/HinhAnh/HinhNen.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+}
+    .login-container .login-form {
+        margin-top: 120px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%; 
+        border: 3px solid white;
+        border-radius: 15px;
+        padding: 30px;
+    }
+        .login-container .login-form .form-label {
+            color: red;
+            font-weight: bolder;
+            font-size: 25px
+        }
+        .login-container .login-form .form-control {
+            font-weight: bold;
+            font-size: 18px
+        }

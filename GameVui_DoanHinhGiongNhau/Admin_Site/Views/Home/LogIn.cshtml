@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Log In Page";
+}
+
+<div class="login-container">
+    <div class="login-form">
+        <form action="Home/LogInAction" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Tài khoản</label>
+                <input type="text" class="form-control" id="inputUserName" name="inputUserName" autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control" id="inputPassword" name="inputPassword">
+            </div>
+            <div class="align-center">
+                <button type="submit" class="btn btn-primary align-center">Đăng nhập</button>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">@ViewBag.Error</label>
+            </div>
+        </form>
+    </div>
+</div>
