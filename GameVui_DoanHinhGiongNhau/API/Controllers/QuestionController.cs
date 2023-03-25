@@ -19,6 +19,16 @@ namespace API.Controllers
         {
             return await _questionRepository.GetQuestions();
         }
+        [HttpGet("[action]/{questionName}")]
+        public async Task<IActionResult> getQuestionsByName(string questionName)
+        {
+            var questions = await _questionRepository.GetQuestionsByName(questionName);
+            if (questions == null)
+            {
+                return BadRequest();
+            }
+            return Ok(questions);
+        }
         [HttpPost]
         public bool AddQuestion(QuestionDTO newQuestion)
         {

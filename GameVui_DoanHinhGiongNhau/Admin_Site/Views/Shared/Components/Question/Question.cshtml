@@ -1,0 +1,57 @@
+﻿@using CommonStorage.Question;
+@using CommonStorage.Paging;
+@model List<QuestionDTO>;
+@{
+    PagerDTO pager = new PagerDTO();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+@if (ViewBag.search != null)
+{
+    <h4 class="search-notification">@ViewBag.search</h4>
+}
+else
+{
+    <table class="table table-striped">
+        <tr>
+            <th>STT</th>
+            <th>Id</th>
+            <th>Câu hỏi</th>
+            <th>Đáp án A</th>
+            <th>Đáp án B</th>
+            <th>Đáp án C</th>
+            <th>Đáp án D</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td></td>
+                    <td>@item.Id</td>
+                    <td>@item.QuestionContent</td>
+                    <td>@item.Answer_1</td>
+                    <td>@item.Answer_2</td>
+                    <td>@item.Answer_3</td>
+                    <td>@item.Answer_4</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="container">
+        @if (pager.TotalPages > 0)
+        {
+            <ul class="pagination justify-content-end">
+                @for (int i = pager.StartPage; i <= pager.EndPage; i++)
+                {
+                    <li class="page-item @(i==pager.CurrentPage?"active":"")">
+                        <a class="page-link" href="@Url.Action("Index","Home",new{page=@i})">@i</a>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+}

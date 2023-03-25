@@ -1,4 +1,22 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿//Câu hỏi
+function hienThi() {
+    const h2 = document.getElementById('hihi');
+    h2.innerHTML = 'Tan biet moi nguoi';
+}
+$(document).ready(function () {
+    const table = document.getElementById('data-table')
+    table.innerHTML = 
+    `<thead>
+        <tr>
+            <th>STT</th>
+            <th>Id</th>
+            <th>Câu hỏi</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+        </tr>
+    </thead>`
+//Người chơi
 
-// Write your JavaScript code.
+//Kỉ lục

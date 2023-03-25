@@ -1,7 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+<head>
+    <link href="~/css/QuestionView.css" rel="stylesheet" />
+</head>
+@Html.Partial("~/Views/Components/Navbar.cshtml")
 <div class="container">
-    <h1>Day la trang chu</h1>
+    <form action="@Url.Action("SearchQuestion","Home")" method="post">
+        <input name="search" class="nav-input form-control me-2" type="search" placeholder="Bạn đang tìm gì hôm nay..." aria-label="Search">
+    </form>
+    @await Component.InvokeAsync("Question", new {categoryId=ViewBag.categoryId, questionName=ViewBag.questionName, page=ViewBag.page})
 </div>
+

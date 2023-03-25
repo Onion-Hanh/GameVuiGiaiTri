@@ -1,7 +1,20 @@
-var builder = WebApplication.CreateBuilder(args);
 
+using Admin_Site.Interfaces;
+using Admin_Site.Services;
+
+var builder = WebApplication.CreateBuilder(args);
+//Config api
+builder.Services.AddHttpClient("", option =>
+{
+    option.BaseAddress = new Uri(builder.Configuration["API"]);
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IQuestion_Service, Question_Service>();
+builder.Services.AddScoped<IPlayer_Service, Player_Service>();
+builder.Services.AddScoped<IRecord_Service, Record_Service>();
+//Add services for session
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -13,6 +26,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSession();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -22,6 +37,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=LogIn}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
