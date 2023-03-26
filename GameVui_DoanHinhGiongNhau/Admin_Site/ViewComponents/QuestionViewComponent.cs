@@ -16,7 +16,7 @@ namespace Admin_Site.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync(int? categoryId, string questionName, int page)
         {
             listQuestion = new List<QuestionDTO>();
-            if (categoryId == null && questionName == null)
+            if (categoryId == null && (questionName == null || questionName == "")) 
             {
                 listQuestion = await _question_Service.getListQuestions();
             }

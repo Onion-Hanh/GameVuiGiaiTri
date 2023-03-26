@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin_Site", "Admin_Site\Admin_Site.csproj", "{7896EC18-B5E3-4B15-9F9B-144BE9A759C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonStorage", "CommonStorage\CommonStorage.csproj", "{8C2DC40E-7090-4A51-80A4-053E2E0D6223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonStorage", "CommonStorage\CommonStorage.csproj", "{8C2DC40E-7090-4A51-80A4-053E2E0D6223}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

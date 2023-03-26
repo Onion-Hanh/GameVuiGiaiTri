@@ -4,7 +4,7 @@
 
 <div class="login-container">
     <div class="login-form">
-        <form action="Home/LogInAction" method="post">
+        <form action="@Url.Action("LogIn","Home")" method="post">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Tài khoản</label>
                 <input type="text" class="form-control" id="inputUserName" name="inputUserName" autofocus>

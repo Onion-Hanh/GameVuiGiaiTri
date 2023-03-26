@@ -9,6 +9,10 @@
     <form action="@Url.Action("SearchQuestion","Home")" method="post">
         <input name="search" class="nav-input form-control me-2" type="search" placeholder="Bạn đang tìm gì hôm nay..." aria-label="Search">
     </form>
+    <div class="container-button-add">
+        <a href="@Url.Action("AddQuestion", "Home")" class="btn btn-info">+Thêm</a>
+        <a href="@Url.Action("AddExcelQuestion", "Home")" class="btn btn-info">+Thêm file Excel</a>
+    </div>   
     @await Component.InvokeAsync("Question", new {categoryId=ViewBag.categoryId, questionName=ViewBag.questionName, page=ViewBag.page})
 </div>
 

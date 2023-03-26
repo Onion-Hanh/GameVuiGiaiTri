@@ -1,0 +1,79 @@
+﻿<head>
+    <link href="~/css/QuestionDetailView.css" rel="stylesheet" />
+    <link href="~/css/AddQuestion.css" rel="stylesheet" />
+</head>
+<div class="container">
+    <table class="table table-container">
+        <thead>
+            <tr class="header">
+                <th class="detail-header" scope="col">Thêm câu hỏi mới</th>
+            </tr>
+        </thead>
+    </table>
+    <form action="@Url.Action("AddQuestion","Home")" method="post">
+        <div class="mb-3">
+            <label for="questionContent" class="form-label">Nội dung câu hỏi</label>
+            <input type="text" class="form-control" id="questionContent" name="questionContent" autofocus>
+        </div>
+        <div class="mb-3">
+            <label for="questionAnswer1" class="form-label">Câu trả lời 1</label>
+            <input type="text" class="form-control" id="questionAnswer1" name="questionAnswer1">
+        </div>
+        <div class="mb-3">
+            <label for="questionAnswer2" class="form-label">Câu trả lời 2</label>
+            <input type="text" class="form-control" id="questionAnswer2" name="questionAnswer2">
+        </div>
+        <div class="mb-3">
+            <label for="questionAnswer3" class="form-label">Câu trả lời 3</label>
+            <input type="text" class="form-control" id="questionAnswer3" name="questionAnswer3">
+        </div>
+        <div class="mb-3">
+            <label for="questionAnswer4" class="form-label">Câu trả lời 4</label>
+            <input type="text" class="form-control" id="questionAnswer4" name="questionAnswer4">
+        </div>
+        <div class="mb-3">
+            <label for="correctAnswer" class="form-label">Câu trả lời đúng</label>
+            <input type="text" class="form-control" id="correctAnswer" name="correctAnswer">
+        </div>
+        <div class="mb-3">
+            <label for="timeAnswer" class="form-label">Thời gian trả lời</label>
+            <input type="text" class="form-control" id="timeAnswer" name="timeAnswer">
+        </div>
+        <div class="mb-3">
+            <label for="difficultLevel" class="form-label">Cấp độ khó</label>
+            <select id="difficultLevel" name="difficultLevel" class="form-select form-select" aria-label=".form-select-sm example">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="status" class="form-label">Trạng thái</label>
+            <select id="status" name="status" class="form-select form-select" aria-label=".form-select-sm example" disabled>
+                <option value="true" selected>Active</option>
+                <option value="false">InActive</option>
+            </select>
+        </div>
+        <div class="align-center">
+            <button type="submit" class="btn btn-primary btn-add" @*data-bs-toggle="modal" data-bs-target="#exampleModal"*@>Thêm</button>
+        </div>      
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        @ViewBag.AddResult
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

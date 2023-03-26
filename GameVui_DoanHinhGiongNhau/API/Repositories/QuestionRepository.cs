@@ -25,6 +25,10 @@ namespace API.Repositories
         {
             return await _gameVuiDBContext.questions.ProjectTo<QuestionDTO>(_mapper.ConfigurationProvider).Where(c => c.QuestionContent.Contains(questionName)).ToListAsync();
         }
+        public async Task<QuestionDTO> GetQuestionDetail(int questionId)
+        {
+            return await _gameVuiDBContext.questions.ProjectTo<QuestionDTO>(_mapper.ConfigurationProvider).Where(c => c.Id == questionId).FirstOrDefaultAsync();
+        }
         public bool AddQuestion(QuestionDTO newQuestion)
         {
             Question question = new Question();

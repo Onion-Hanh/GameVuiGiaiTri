@@ -1,0 +1,8 @@
+﻿<head>
+    @*<link href="~/css/productdetail.css" rel="stylesheet" />*@
+</head>
+<div>
+    <div>
+        @await Component.InvokeAsync("QuestionDetail", new {questionId=ViewBag.questionId})
+    </div>
+</div>

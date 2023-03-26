@@ -1,0 +1,84 @@
+﻿@using CommonStorage.Question
+@model QuestionDTO
+<head>
+    <!--Font-awesome-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css"
+          integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/solid.min.css"
+          integrity="sha512-uj2QCZdpo8PSbRGL/g5mXek6HM/APd7k/B5Hx/rkVFPNOxAQMXD+t+bG4Zv8OAdUpydZTU3UHmyjjiHv2Ww0PA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+    <link href="~/css/QuestionDetailView.css" rel="stylesheet" />
+</head>
+<div class="container">
+    <table class="table table-container">
+        <thead>
+            <tr class="header">
+                <th colspan="3" class="detail-header" scope="col">Thông tin chi tiết</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td colspan="3"><strong>Id: </strong></td></tr>
+            <tr><td colspan="3"><input type="text" id="questionId" name="questionId" value=@Model.Id disabled></td></tr>
+            <tr><td colspan="3"><strong>Nội dung câu hỏi: </strong></td></tr>
+            <tr><td colspan="3"><input class="form-control" type="text" id="questionContent" name="questionContent" value="@Model.QuestionContent" autofocus></td></tr>
+            <tr><td colspan="3"><strong>Câu trả lời 1: </strong></td></tr>
+            <tr><td colspan="3"><input class="form-control" type="text" id="questionAnswer1" name="questionAnswer1" value="@Model.Answer_1"></td></tr>
+            <tr><td colspan="3"><strong>Câu trả lời 2: </strong></td></tr>
+            <tr><td colspan="3"><input class="form-control" type="text" id="questionAnswer2" name="questionAnswer2" value="@Model.Answer_2"></td></tr>
+            <tr><td colspan="3"><strong>Câu trả lời 3: </strong></td></tr>
+            <tr><td colspan="3"><input class="form-control" type="text" id="questionAnswer3" name="questionAnswer3" value="@Model.Answer_3"></td></tr>
+            <tr><td colspan="3"><strong>Câu trả lời 4: </strong></td></tr>
+            <tr><td colspan="3"><input class="form-control" type="text" id="questionAnswer4" name="questionAnswer4" value="@Model.Answer_4"></td></tr>
+            <tr><td colspan="3"><strong>Câu trả lời đúng: </strong></td></tr>
+            <tr><td colspan="3"><input class="form-control" type="text" id="correctAnswer" name="correctAnswer" value="@Model.CorrectAnswer"></td></tr>
+            <tr>
+                <td><strong>Thời gian trả lời: </strong></td>
+                <td><strong>Cấp độ khó: </strong></td>
+                <td><strong>Trạng thái: </strong></td>
+            </tr>
+            <tr>
+                <td><input class="form-control" type="text" id="timeAnswer" name="timeAnswer" value="@Model.AnswerTime">
+                </td>
+                <td>
+                    <select id ="difficultLevel" class="form-select form-select" aria-label=".form-select-sm example">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>                  
+                </td>
+                <td>
+                    <select id="status" class="form-select form-select" aria-label=".form-select-sm example">
+                        <option value="Active">Active</option>
+                        <option value="InActive">InActive</option>                      
+                    </select>
+                </td>
+            </tr>           
+        </tbody>
+    </table>
+    <div class="align-center">
+        <a href="@Url.Action("AddItem", "ShoppingCart", new { productId = Model.Id })" class="btn btn-info">Cập nhật</a>
+    </div>  
+</div>
+<!--Font-awesome-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/regular.min.css"></script>
+<script>
+    //create select list difficult level
+    var itemDifficultLevel = @Model.DifficultLevel;
+    var selectComponent = document.getElementById('difficultLevel');
+    selectComponent[itemDifficultLevel - 1].setAttribute('selected', 'selected')
+    var selectComponent = document.getElementById('status');   
+    //create select list status
+    var itemStatus = @Model.Status.ToString().ToLower();
+    if(itemStatus == true){
+        selectComponent[0].setAttribute('selected', 'selected')
+    }
+    else{
+        selectComponent[1].setAttribute('selected', 'selected')
+    }
+</script>

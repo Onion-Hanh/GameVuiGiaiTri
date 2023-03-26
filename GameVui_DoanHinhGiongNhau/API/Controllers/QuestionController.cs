@@ -29,6 +29,16 @@ namespace API.Controllers
             }
             return Ok(questions);
         }
+        [HttpGet("[action]/{questionId}")]
+        public async Task<IActionResult> getQuestionById(int questionId)
+        {
+            var question = await _questionRepository.GetQuestionDetail(questionId);
+            if (question == null)
+            {
+                return BadRequest();
+            }
+            return Ok(question);
+        }
         [HttpPost]
         public bool AddQuestion(QuestionDTO newQuestion)
         {

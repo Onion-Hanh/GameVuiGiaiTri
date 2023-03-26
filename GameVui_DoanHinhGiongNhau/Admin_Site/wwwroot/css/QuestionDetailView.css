@@ -1,0 +1,11 @@
+﻿.header {
+    background-color: #000000
+}
+.detail-header {
+    font-size: 30px;
+    text-align: center;
+    color: orange;
+}
+.align-center {
+    text-align: center;
+}

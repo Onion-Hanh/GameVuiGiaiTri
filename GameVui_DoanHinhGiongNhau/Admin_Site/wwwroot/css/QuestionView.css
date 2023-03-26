@@ -1,4 +1,8 @@
-﻿.form-control {
+﻿.container-button-add {
+   margin-left: 82.5%;
+   margin-bottom: 12px;
+}
+.form-control {
     width: 60%;
     margin: auto;
     margin-bottom: 15px;
@@ -8,4 +12,8 @@
     color: red;
     font-weight: bold;
     margin-left: 40px;
+}
+a.disabled {
+    pointer-events: none;
+    cursor: default;
 }

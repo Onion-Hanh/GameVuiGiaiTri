@@ -25,11 +25,12 @@ else
             <th>Đáp án B</th>
             <th>Đáp án C</th>
             <th>Đáp án D</th>
+            <th>Chức năng</th>
         </tr>
         <tbody>
             @foreach (var item in Model)
-            {
-                <tr>
+            {               
+                <tr>                   
                     <td></td>
                     <td>@item.Id</td>
                     <td>@item.QuestionContent</td>
@@ -37,7 +38,18 @@ else
                     <td>@item.Answer_2</td>
                     <td>@item.Answer_3</td>
                     <td>@item.Answer_4</td>
-                </tr>
+                    <td>
+                        <a href="@Url.Action("QuestionDetail","Home",new {questionId=item.Id})" class="btn btn-outline-success">Chi tiết</a>
+                        @if (item.Status == true)
+                        {
+                            <a href="@Url.Action("QuestionDetail","Home",new {questionId=item.Id})" class="btn btn-danger">Xóa</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("QuestionDetail","Home",new {questionId=item.Id})" class="btn btn-danger disabled">Xóa</a>
+                        }
+                    </td>
+                </tr>             
             }
         </tbody>
     </table>

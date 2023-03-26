@@ -1,20 +1,25 @@
-﻿using Admin_Site.Models;
+﻿using Admin_Site.Interfaces;
+using Admin_Site.Models;
 using CommonStorage.Player;
 using CommonStorage.Question;
 using CommonStorage.Record;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System.Collections.Generic;
 
 namespace Admin_Site.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IQuestion_Service _question_Service;
         List<QuestionDTO> listQuestion = new List<QuestionDTO>();
         List<PlayerDTO> listPlayer = new List<PlayerDTO>();
         List<RecordDTO> listRecord = new List<RecordDTO>();
         readonly Paging _paging;
-        public HomeController(IOptions<Paging> paging)
+        public HomeController(IQuestion_Service question_Service, IOptions<Paging> paging)
         {
+            _question_Service = question_Service;
             _paging = paging.Value;
         }
         [HttpGet]
@@ -23,7 +28,7 @@ namespace Admin_Site.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult LogInAction(IFormCollection form)
+        public IActionResult LogIn(IFormCollection form)
         {
             string userName = form["inputUserName"].ToString();
             string password = form["inputPassword"].ToString();
@@ -61,14 +66,14 @@ namespace Admin_Site.Controllers
             ViewBag.page = page;
             return View();
         }
-        ////Product detail page
-        //public async Task<IActionResult> ProductDetail(int productId)
-        //{
-        //    ViewBag.productId = productId;
-        //    _paging.product_Id = productId;
-        //    return View();
-        //}
-        //Search product
+        //Question detail page
+        public async Task<IActionResult> QuestionDetail(int questionId)
+        {
+            ViewBag.questionId = questionId;
+            _paging.question_Id = questionId;
+            return View();
+        }
+        //Search question
         public async Task<IActionResult> SearchQuestion(IFormCollection form, bool index, int? page)
         {
             if (page == null)
@@ -86,6 +91,53 @@ namespace Admin_Site.Controllers
                 ViewBag.questionName = _paging.question_Name;
             }
             return View("Index", listQuestion);
+        }
+        //Add question page
+        [HttpGet]
+        public IActionResult AddQuestion()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddQuestion(IFormCollection form)
+        {
+            QuestionDTO question = new QuestionDTO();
+            string status = "";
+            string difficultLevel = "";
+            if (form["status"].ToString() == "")
+            {
+                status = "true";
+            }
+            else
+            {
+                status = form["status"].ToString();
+            }
+            if (form["difficultLevel"].ToString() == "")
+            {
+                difficultLevel = "1";
+            }
+            else 
+            {
+                difficultLevel = form["difficultLevel"].ToString();
+            }
+            question.QuestionContent = form["questionContent"].ToString();
+            question.Answer_1 = form["questionAnswer1"].ToString();
+            question.Answer_2 = form["questionAnswer2"].ToString();
+            question.Answer_3 = form["questionAnswer3"].ToString();
+            question.Answer_4 = form["questionAnswer4"].ToString();
+            question.CorrectAnswer = form["correctAnswer"].ToString();
+            question.AnswerTime = int.Parse(form["timeAnswer"].ToString());
+            question.DifficultLevel = int.Parse(difficultLevel);
+            question.Status = bool.Parse(status);
+            if (_question_Service.addQuestion(question).Result == true)
+            {
+                ViewBag.AddResult = "Thêm thành công!";
+            }
+            else
+            {
+                ViewBag.AddResult = "Thêm thất bại!";
+            }
+            return View();
         }
     }
 }
