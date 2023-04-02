@@ -7,7 +7,8 @@ namespace Admin_Site.Interfaces
         Task<List<QuestionDTO>> getListQuestions();
         Task<List<QuestionDTO>> getQuestionsByName(string questionName);
         Task<QuestionDTO> getQuestionById(int questionId);
-        //Task<bool> updateQuestionById(QuestionDTO question);
         Task<bool> addQuestion(QuestionDTO question);
+        Task<bool> updateQuestionById(QuestionDTO question);
+        //Task<bool> deleteQuestionById(QuestionDTO question);
     }
 }

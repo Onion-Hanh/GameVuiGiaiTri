@@ -5,6 +5,7 @@ using CommonStorage.Question;
 using CommonStorage.Record;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 
@@ -137,7 +138,57 @@ namespace Admin_Site.Controllers
             {
                 ViewBag.AddResult = "Thêm thất bại!";
             }
-            return View();
+            ViewBag.productName = null;
+            ViewBag.categoryId = null;
+            ViewBag.page = 1;
+            return View("Index");
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateQuestion(IFormCollection form)
+        {
+            QuestionDTO question = new QuestionDTO();
+            question.Id = int.Parse(form["questionIdHidden"].ToString());
+            question.QuestionContent = form["questionContent"].ToString();
+            question.Answer_1 = form["questionAnswer1"].ToString();
+            question.Answer_2 = form["questionAnswer2"].ToString();
+            question.Answer_3 = form["questionAnswer3"].ToString();
+            question.Answer_4 = form["questionAnswer4"].ToString();
+            question.CorrectAnswer = form["correctAnswer"].ToString();
+            question.AnswerTime = int.Parse(form["timeAnswer"].ToString());
+            question.DifficultLevel = int.Parse(form["difficultLevel"].ToString());
+            question.Status = bool.Parse(form["status"].ToString());
+            if (_question_Service.updateQuestionById(question).Result == true)
+            {
+                ViewBag.AddResult = "Cập nhật thành công!";
+            }
+            else
+            {
+                ViewBag.AddResult = "Cập nhật thất bại!";
+            }
+            ViewBag.productName = null;
+            ViewBag.categoryId = null;
+            ViewBag.page = 1;
+            return View("Index");
+        }
+        public async Task<IActionResult> DeleteQuestion(int questionId)
+        {
+            listQuestion = _question_Service.getListQuestions().Result.ToList();
+            QuestionDTO question = new QuestionDTO();
+            question = listQuestion.Where(c => c.Id == questionId).FirstOrDefault();
+            question.Status = false;
+            if (_question_Service.updateQuestionById(question).Result == true)
+            {
+                ViewBag.AddResult = "Xóa thành công!";
+            }
+            else
+            {
+                ViewBag.AddResult = "Xóa thất bại!";
+            }
+            ViewBag.productName = null;
+            ViewBag.categoryId = null;
+            ViewBag.page = 1;
+            listQuestion.Clear();
+            return View("Index");
         }
     }
 }

@@ -42,11 +42,11 @@ else
                         <a href="@Url.Action("QuestionDetail","Home",new {questionId=item.Id})" class="btn btn-outline-success">Chi tiết</a>
                         @if (item.Status == true)
                         {
-                            <a href="@Url.Action("QuestionDetail","Home",new {questionId=item.Id})" class="btn btn-danger">Xóa</a>
+                            <a href="@Url.Action("DeleteQuestion","Home",new {questionId=item.Id})" class="btn btn-danger">Xóa</a>
                         }
                         else
                         {
-                            <a href="@Url.Action("QuestionDetail","Home",new {questionId=item.Id})" class="btn btn-danger disabled">Xóa</a>
+                            <a href="@Url.Action("DeleteQuestion","Home",new {questionId=item.Id})" class="btn btn-danger disabled">Xóa</a>
                         }
                     </td>
                 </tr>             

@@ -3,58 +3,52 @@
     <link href="~/css/AddQuestion.css" rel="stylesheet" />
 </head>
 <div class="container">
-    <table class="table table-container">
-        <thead>
-            <tr class="header">
-                <th class="detail-header" scope="col">Thêm câu hỏi mới</th>
-            </tr>
-        </thead>
-    </table>
     <form action="@Url.Action("AddQuestion","Home")" method="post">
-        <div class="mb-3">
-            <label for="questionContent" class="form-label">Nội dung câu hỏi</label>
-            <input type="text" class="form-control" id="questionContent" name="questionContent" autofocus>
-        </div>
-        <div class="mb-3">
-            <label for="questionAnswer1" class="form-label">Câu trả lời 1</label>
-            <input type="text" class="form-control" id="questionAnswer1" name="questionAnswer1">
-        </div>
-        <div class="mb-3">
-            <label for="questionAnswer2" class="form-label">Câu trả lời 2</label>
-            <input type="text" class="form-control" id="questionAnswer2" name="questionAnswer2">
-        </div>
-        <div class="mb-3">
-            <label for="questionAnswer3" class="form-label">Câu trả lời 3</label>
-            <input type="text" class="form-control" id="questionAnswer3" name="questionAnswer3">
-        </div>
-        <div class="mb-3">
-            <label for="questionAnswer4" class="form-label">Câu trả lời 4</label>
-            <input type="text" class="form-control" id="questionAnswer4" name="questionAnswer4">
-        </div>
-        <div class="mb-3">
-            <label for="correctAnswer" class="form-label">Câu trả lời đúng</label>
-            <input type="text" class="form-control" id="correctAnswer" name="correctAnswer">
-        </div>
-        <div class="mb-3">
-            <label for="timeAnswer" class="form-label">Thời gian trả lời</label>
-            <input type="text" class="form-control" id="timeAnswer" name="timeAnswer">
-        </div>
-        <div class="mb-3">
-            <label for="difficultLevel" class="form-label">Cấp độ khó</label>
-            <select id="difficultLevel" name="difficultLevel" class="form-select form-select" aria-label=".form-select-sm example">
-                <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="status" class="form-label">Trạng thái</label>
-            <select id="status" name="status" class="form-select form-select" aria-label=".form-select-sm example" disabled>
-                <option value="true" selected>Active</option>
-                <option value="false">InActive</option>
-            </select>
-        </div>
+      <table class="table table-container">
+            <thead>
+                <tr class="header">
+                    <th colspan="3" class="detail-header" scope="col">Thêm câu hỏi mới</th>
+                </tr>
+            </thead>
+            <tbody>               
+                <tr><td colspan="3"><strong>Nội dung câu hỏi: </strong></td></tr>
+                <tr><td colspan="3"><input class="form-control" type="text" id="questionContent" name="questionContent" autofocus></td></tr>
+                <tr><td colspan="3"><strong>Câu trả lời 1: </strong></td></tr>
+                <tr><td colspan="3"><input class="form-control" type="text" id="questionAnswer1" name="questionAnswer1"></td></tr>
+                <tr><td colspan="3"><strong>Câu trả lời 2: </strong></td></tr>
+                <tr><td colspan="3"><input class="form-control" type="text" id="questionAnswer2" name="questionAnswer2"></td></tr>
+                <tr><td colspan="3"><strong>Câu trả lời 3: </strong></td></tr>
+                <tr><td colspan="3"><input class="form-control" type="text" id="questionAnswer3" name="questionAnswer3"></td></tr>
+                <tr><td colspan="3"><strong>Câu trả lời 4: </strong></td></tr>
+                <tr><td colspan="3"><input class="form-control" type="text" id="questionAnswer4" name="questionAnswer4"></td></tr>
+                <tr><td colspan="3"><strong>Câu trả lời đúng: </strong></td></tr>
+                <tr><td colspan="3"><input class="form-control" type="text" id="correctAnswer" name="correctAnswer"></td></tr>
+                <tr>
+                    <td><strong>Thời gian trả lời: </strong></td>
+                    <td><strong>Cấp độ khó: </strong></td>
+                    <td><strong>Trạng thái: </strong></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control" type="text" id="timeAnswer" name="timeAnswer">
+                    </td>
+                    <td>
+                        <select id="difficultLevel" name="difficultLevel" class="form-select form-select" aria-label=".form-select-sm example">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="status" name="status" class="form-select form-select" aria-label=".form-select-sm example" disabled>
+                            <option value="true">Active</option>
+                            <option value="false">InActive</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <div class="align-center">
             <button type="submit" class="btn btn-primary btn-add" @*data-bs-toggle="modal" data-bs-target="#exampleModal"*@>Thêm</button>
         </div>      

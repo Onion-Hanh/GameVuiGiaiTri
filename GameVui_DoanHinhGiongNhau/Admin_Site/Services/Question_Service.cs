@@ -68,24 +68,24 @@ namespace Admin_Site.Services
                 return false;
             }
         }
-        //public async Task<bool> updateQuestionById(QuestionDTO quesiton)
-        //{
-        //    try
-        //    {
-        //        var httpClient = _factory.CreateClient();
-        //        string data = JsonConvert.SerializeObject(receipt);
-        //        StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
-        //        var reponseMessage = await httpClient.PostAsync("Receipt", content);
-        //        if (reponseMessage.IsSuccessStatusCode)
-        //        {
-        //            return true;
-        //        }
-        //        return false;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
+        public async Task<bool> updateQuestionById(QuestionDTO question)
+        {
+            try
+            {
+                var httpClient = _factory.CreateClient();
+                string data = JsonConvert.SerializeObject(question);
+                StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
+                var reponseMessage = await httpClient.PutAsync("Question", content);
+                if (reponseMessage.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }       
     }
 }
